@@ -1,5 +1,12 @@
 document.addEventListener('DOMContentLoaded', () => {
 
+  // MOBILE MENU TOGGLE
+  const mobileMenu = document.getElementById('mobile-menu');
+  const navList = document.querySelector('.nav-list');
+  mobileMenu.addEventListener('click', () => {
+    navList.classList.toggle('active');
+  });
+
   // CART
   let cart = [];
   const cartCount = document.getElementById('cart-count');
@@ -9,13 +16,15 @@ document.addEventListener('DOMContentLoaded', () => {
   const cartBtn = document.getElementById('cart-btn');
   const paytmBtn = document.getElementById('paytm-btn');
 
-  // Add to Cart buttons
+  // Add to Cart buttons with SARMs warning
   document.querySelectorAll('.add-cart').forEach(button => {
     button.addEventListener('click', () => {
       const name = button.getAttribute('data-name');
       const price = parseInt(button.getAttribute('data-price'));
+      const warning = button.getAttribute('data-warning');
 
-      // Check if item exists
+      if (warning) alert(warning); // show SARMs warning
+
       const existing = cart.find(item => item.name === name);
       if (existing) {
         existing.quantity += 1;
@@ -28,7 +37,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
-  // Update cart list
+  // Update cart display
   function updateCart() {
     cartList.innerHTML = '';
     let total = 0;
@@ -39,12 +48,10 @@ document.addEventListener('DOMContentLoaded', () => {
       const li = document.createElement('li');
       li.classList.add('cart-item');
 
-      // Name + total
       const span = document.createElement('span');
       span.textContent = `${item.name} - ₹${item.price * item.quantity}`;
       li.appendChild(span);
 
-      // Quantity controls
       const qtyDiv = document.createElement('div');
 
       const minusBtn = document.createElement('button');
@@ -74,7 +81,6 @@ document.addEventListener('DOMContentLoaded', () => {
       qtyDiv.appendChild(plusBtn);
       li.appendChild(qtyDiv);
 
-      // Remove button
       const removeBtn = document.createElement('button');
       removeBtn.textContent = '❌';
       removeBtn.style.marginLeft = '10px';
@@ -92,7 +98,7 @@ document.addEventListener('DOMContentLoaded', () => {
     totalDisplay.textContent = `Total: ₹${total}`;
   }
 
-  // CART PANEL OPEN/CLOSE
+  // Cart open/close
   function openCart() { cartPanel.style.right = '0'; }
   function closeCart() { cartPanel.style.right = '-400px'; }
 
@@ -115,11 +121,36 @@ document.addEventListener('DOMContentLoaded', () => {
     window.location.href = paytmUPI;
   });
 
-  // MOBILE MENU TOGGLE
-  const mobileMenu = document.getElementById('mobile-menu');
-  const navList = document.querySelector('.nav-list');
-  mobileMenu.addEventListener('click', () => {
-    navList.classList.toggle('active');
+  // EMAIL ORDER
+  const emailOrderBtn = document.getElementById('email-order');
+
+  emailOrderBtn.addEventListener('click', () => {
+    if(cart.length === 0){
+      alert('Your cart is empty!');
+      return;
+    }
+
+    const name = document.getElementById('buyer-name').value.trim();
+    const email = document.getElementById('buyer-email').value.trim();
+    const phone = document.getElementById('buyer-phone').value.trim();
+    const address = document.getElementById('buyer-address').value.trim();
+
+    if(!name || !email || !phone || !address){
+      alert('Please fill all fields!');
+      return;
+    }
+
+    let orderText = `Order Details:\n\n`;
+    cart.forEach(item => {
+      orderText += `${item.name} x${item.quantity} - ₹${item.price * item.quantity}\n`;
+    });
+
+    const total = cart.reduce((sum,item)=>sum+item.price*item.quantity,0);
+    orderText += `\nTotal: ₹${total}\n\n`;
+    orderText += `Buyer Info:\nName: ${name}\nEmail: ${email}\nPhone: ${phone}\nAddress: ${address}`;
+
+    const mailtoLink = `mailto:hitmanhitmanty@gmail.com?subject=Pride Invasion Order&body=${encodeURIComponent(orderText)}`;
+    window.location.href = mailtoLink;
   });
 
 });
