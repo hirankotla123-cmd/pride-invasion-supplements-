@@ -150,41 +150,29 @@ nav {
   width: 350px;
   height: 100%;
   background: #0d000d;
-  box-shadow: -5px 0 20px #ff007f66;
   padding: 20px;
-  transition: 0.3s;
-  overflow-y: auto;
+  box-shadow: -5px 0 20px #ff007f66;
+  transition: right 0.3s ease;
   z-index: 999;
+  display: flex;
+  flex-direction: column;
+  overflow-y: auto; /* allows scrolling */
 }
 
-.cart-panel h2 {
-  text-align: center;
+.cart-content {
+  flex: 1 1 auto; /* makes content grow to fill panel */
+  display: flex;
+  flex-direction: column;
 }
 
-.cart-panel ul {
+#cart-list {
   list-style: none;
   padding: 0;
+  margin: 0 0 10px 0;
 }
 
-.cart-item {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-bottom: 10px;
-}
-
-.cart-item button {
-  background: #ff007f;
-  border: none;
-  padding: 2px 6px;
-  border-radius: 5px;
-  cursor: pointer;
-  color: #fff;
-}
-
-/* Checkout Form */
 .checkout-options {
-  margin-top: 20px;
+  margin-top: auto; /* pushes checkout to bottom of cart-content */
   display: flex;
   flex-direction: column;
   gap: 10px;
