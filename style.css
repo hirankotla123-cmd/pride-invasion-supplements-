@@ -25,23 +25,24 @@ header {
   color: #ff80ff;
 }
 
+
 /* Desktop */
 .logo img {
-  height: 120px;      /* desktop size */
-  margin-right: 20px;
+  height: 140px;  /* really big for desktop */
+  margin-right: 15px;
 }
 
 /* Tablets */
-@media (max-width: 1055px) {
+@media (max-width: 1024px) {
   .logo img {
-    height: 75px;
+    height: 110px;  /* slightly smaller on tablets */
   }
 }
 
 /* Mobile */
-@media (max-width: 900px) {
+@media (max-width: 768px) {
   .logo img {
-    height: 10px;
+    height: 90px;   /* still big, fits mobile screens */
   }
 }
 
