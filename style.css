@@ -39,7 +39,7 @@ header {
 }
 
 /* Mobile */
-@media (max-width: 800px) {
+@media (max-width: 900px) {
   .logo img {
     height: 50px;
   }
