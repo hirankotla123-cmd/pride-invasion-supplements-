@@ -41,7 +41,7 @@ header {
 /* Mobile */
 @media (max-width: 900px) {
   .logo img {
-    height: 90px;
+    height: 10px;
   }
 }
 
