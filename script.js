@@ -106,6 +106,13 @@ document.addEventListener('DOMContentLoaded', () => {
     if (cartPanel.style.right === '0px') closeCart();
     else openCart();
   });
+  
+// Close button inside panel
+const closeCartBtn = document.getElementById('close-cart');
+closeCartBtn.addEventListener('click', () => {
+  cartPanel.style.right = '-400px';
+});
+
 
   // ===== PAYTM PAYMENT =====
   paytmBtn.addEventListener('click', () => {
