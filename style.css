@@ -149,8 +149,8 @@ nav {
   right: -400px;
   width: 350px;
   height: 100%;
-  background: #1a001a;
-  box-shadow: -5px 0 15px #ff007f66;
+  background: #0d000d;
+  box-shadow: -5px 0 20px #ff007f66;
   padding: 20px;
   transition: 0.3s;
   overflow-y: auto;
