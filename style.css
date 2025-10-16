@@ -25,10 +25,26 @@ header {
   color: #ff80ff;
 }
 
+/* Desktop */
 .logo img {
-  height: 80px;
+  height: 80px;      /* desktop size */
   margin-right: 10px;
 }
+
+/* Tablets */
+@media (max-width: 1024px) {
+  .logo img {
+    height: 65px;
+  }
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+  .logo img {
+    height: 50px;
+  }
+}
+
 
 /* Navigation */
 nav {
