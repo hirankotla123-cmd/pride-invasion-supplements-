@@ -27,19 +27,19 @@ header {
 
 /* Desktop */
 .logo img {
-  height: 80px;      /* desktop size */
+  height: 100px;      /* desktop size */
   margin-right: 10px;
 }
 
 /* Tablets */
-@media (max-width: 1024px) {
+@media (max-width: 1055px) {
   .logo img {
     height: 65px;
   }
 }
 
 /* Mobile */
-@media (max-width: 768px) {
+@media (max-width: 800px) {
   .logo img {
     height: 50px;
   }
