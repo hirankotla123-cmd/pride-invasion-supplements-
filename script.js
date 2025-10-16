@@ -1,13 +1,13 @@
 document.addEventListener('DOMContentLoaded', () => {
 
-  // MOBILE MENU TOGGLE
+  // ===== MOBILE MENU TOGGLE =====
   const mobileMenu = document.getElementById('mobile-menu');
   const navList = document.querySelector('.nav-list');
   mobileMenu.addEventListener('click', () => {
     navList.classList.toggle('active');
   });
 
-  // CART
+  // ===== CART =====
   let cart = [];
   const cartCount = document.getElementById('cart-count');
   const cartList = document.getElementById('cart-list');
@@ -16,15 +16,17 @@ document.addEventListener('DOMContentLoaded', () => {
   const cartBtn = document.getElementById('cart-btn');
   const paytmBtn = document.getElementById('paytm-btn');
 
-  // Add to Cart buttons with SARMs warning
+  // Add to Cart buttons
   document.querySelectorAll('.add-cart').forEach(button => {
     button.addEventListener('click', () => {
       const name = button.getAttribute('data-name');
       const price = parseInt(button.getAttribute('data-price'));
       const warning = button.getAttribute('data-warning');
 
-      if (warning) alert(warning); // show SARMs warning
+      // Show SARMs warning if exists
+      if (warning) alert(warning);
 
+      // Add to cart
       const existing = cart.find(item => item.name === name);
       if (existing) {
         existing.quantity += 1;
@@ -52,16 +54,14 @@ document.addEventListener('DOMContentLoaded', () => {
       span.textContent = `${item.name} - ₹${item.price * item.quantity}`;
       li.appendChild(span);
 
+      // Quantity controls
       const qtyDiv = document.createElement('div');
 
       const minusBtn = document.createElement('button');
       minusBtn.textContent = '-';
       minusBtn.addEventListener('click', () => {
-        if (item.quantity > 1) {
-          item.quantity -= 1;
-        } else {
-          cart.splice(index, 1);
-        }
+        if (item.quantity > 1) item.quantity -= 1;
+        else cart.splice(index, 1);
         updateCart();
       });
 
@@ -81,6 +81,7 @@ document.addEventListener('DOMContentLoaded', () => {
       qtyDiv.appendChild(plusBtn);
       li.appendChild(qtyDiv);
 
+      // Remove button
       const removeBtn = document.createElement('button');
       removeBtn.textContent = '❌';
       removeBtn.style.marginLeft = '10px';
@@ -88,7 +89,6 @@ document.addEventListener('DOMContentLoaded', () => {
         cart.splice(index, 1);
         updateCart();
       });
-
       li.appendChild(removeBtn);
 
       cartList.appendChild(li);
@@ -103,14 +103,11 @@ document.addEventListener('DOMContentLoaded', () => {
   function closeCart() { cartPanel.style.right = '-400px'; }
 
   cartBtn.addEventListener('click', () => {
-    if (cartPanel.style.right === '0px') {
-      closeCart();
-    } else {
-      openCart();
-    }
+    if (cartPanel.style.right === '0px') closeCart();
+    else openCart();
   });
 
-  // PAYTM PAYMENT
+  // ===== PAYTM PAYMENT =====
   paytmBtn.addEventListener('click', () => {
     if (cart.length === 0) {
       alert('Your cart is empty!');
@@ -121,7 +118,7 @@ document.addEventListener('DOMContentLoaded', () => {
     window.location.href = paytmUPI;
   });
 
-  // EMAIL ORDER
+  // ===== BUYER DETAILS EMAIL =====
   const emailOrderBtn = document.getElementById('email-order');
 
   emailOrderBtn.addEventListener('click', () => {
