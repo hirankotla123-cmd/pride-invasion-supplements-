@@ -1,72 +1,125 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Hiran - Supplements</title>
-    <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Pride Invasion - Premium Supplements</title>
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-    <header>
-        <div class="logo">HIRAN</div>
-        <nav>
-            <ul>
-                <li><a href="#products">Products</a></li>
-                <li><a href="#about">About</a></li>
-                <li><a href="#contact">Contact</a></li>
-            </ul>
-        </nav>
-    </header>
+  <header>
+    <div class="logo">
+      <img src="images/logo.png" alt="Pride Invasion Logo" />
+      <span>PRIDE INVASION</span>
+    </div>
+    <nav>
+      <ul>
+        <li><a href="#products">Products</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#contact">Contact</a></li>
+        <li><a href="#cart" id="cart-btn">🛒 Cart (<span id="cart-count">0</span>)</a></li>
+      </ul>
+    </nav>
+  </header>
 
-    <section class="hero">
-        <h1>Future of Supplements</h1>
-        <p>High-quality SARMs, Creatine & Protein for peak performance.</p>
-        <a href="#products" class="btn glow">Shop Now</a>
-    </section>
+  <section class="hero">
+    <h1>Unleash Your Power</h1>
+    <p>Elite SARMs, Protein & Creatine for true domination.</p>
+    <a href="#products" class="btn pride">Shop Now</a>
+  </section>
 
-    <section id="products" class="products">
-        <h2>Our Products</h2>
-        <div class="product-grid">
-            <div class="product-card glow-card">
-                <img src="images/product1.jpg" alt="S4">
-                <h3>S4 Andarine</h3>
-                <p>Enhance fat loss and muscle definition.</p>
-                <a href="https://wa.me/916302753671" target="_blank" class="btn glow">Buy Now</a>
-            </div>
-            <div class="product-card glow-card">
-                <img src="images/product2.jpg" alt="Creatine">
-                <h3>Creatine Monohydrate</h3>
-                <p>Boost strength and endurance.</p>
-                <a href="https://wa.me/916302753671" target="_blank" class="btn glow">Buy Now</a>
-            </div>
-            <div class="product-card glow-card">
-                <img src="images/product3.jpg" alt="Protein">
-                <h3>Soy Protein</h3>
-                <p>High-quality protein for muscle growth.</p>
-                <a href="https://wa.me/916302753671" target="_blank" class="btn glow">Buy Now</a>
-            </div>
-        </div>
-    </section>
+  <section id="products" class="products">
+    <h2>Our Products</h2>
+    <div class="product-grid">
 
-    <section id="about" class="about">
-        <h2>About Hiran</h2>
-        <p>Hiran is your futuristic hub for premium supplements that help you reach your peak physique.</p>
-    </section>
+      <div class="product-card">
+        <img src="images/s4.jpg" alt="S4 Andarine">
+        <h3>S4 Andarine</h3>
+        <p>Enhance fat loss and muscle definition.</p>
+        <span class="price">₹3700</span>
+        <button class="btn pride add-cart" data-name="S4 Andarine" data-price="3700">Add to Cart</button>
+      </div>
 
-    <section id="contact" class="contact">
-        <h2>Contact Us</h2>
-        <form id="contactForm">
-            <input type="text" placeholder="Your Name" required>
-            <input type="email" placeholder="Your Email" required>
-            <textarea placeholder="Your Message" required></textarea>
-            <button type="submit" class="btn glow">Send Message</button>
-        </form>
-    </section>
+      <div class="product-card">
+        <img src="images/rad140.jpg" alt="RAD-140">
+        <h3>RAD-140</h3>
+        <p>Extreme muscle growth and recovery boost.</p>
+        <span class="price">₹4500</span>
+        <button class="btn pride add-cart" data-name="RAD-140" data-price="4500">Add to Cart</button>
+      </div>
 
-    <footer>
-        <p>&copy; 2025 Hiran. All rights reserved.</p>
-    </footer>
+      <div class="product-card">
+        <img src="images/lgd4033.jpg" alt="LGD-4033">
+        <h3>LGD-4033</h3>
+        <p>Rapid lean muscle gains and strength.</p>
+        <span class="price">₹4200</span>
+        <button class="btn pride add-cart" data-name="LGD-4033" data-price="4200">Add to Cart</button>
+      </div>
 
-    <script src="script.js"></script>
+      <div class="product-card">
+        <img src="images/mk677.jpg" alt="MK-677">
+        <h3>MK-677</h3>
+        <p>Boosts HGH, recovery, and sleep quality.</p>
+        <span class="price">₹3900</span>
+        <button class="btn pride add-cart" data-name="MK-677" data-price="3900">Add to Cart</button>
+      </div>
+
+      <div class="product-card">
+        <img src="images/yk11.jpg" alt="YK-11">
+        <h3>YK-11</h3>
+        <p>Maximum anabolic effect and muscle fullness.</p>
+        <span class="price">₹4800</span>
+        <button class="btn pride add-cart" data-name="YK-11" data-price="4800">Add to Cart</button>
+      </div>
+
+      <div class="product-card">
+        <img src="images/creatine.jpg" alt="Creatine Monohydrate">
+        <h3>Creatine Monohydrate</h3>
+        <p>Explosive power and endurance.</p>
+        <span class="price">₹400</span>
+        <button class="btn pride add-cart" data-name="Creatine Monohydrate" data-price="400">Add to Cart</button>
+      </div>
+
+      <div class="product-card">
+        <img src="images/protein.jpg" alt="Soy Protein">
+        <h3>Soy Protein</h3>
+        <p>Premium plant-based protein for muscle recovery.</p>
+        <span class="price">₹2000</span>
+        <button class="btn pride add-cart" data-name="Soy Protein" data-price="2000">Add to Cart</button>
+      </div>
+    </div>
+  </section>
+
+  <section id="cart" class="cart-section">
+    <h2>Your Cart</h2>
+    <ul id="cart-list"></ul>
+    <p id="total">Total: ₹0</p>
+
+    <div class="checkout-options">
+      <a href="https://wa.me/917671078991" target="_blank" class="btn pride">Checkout via WhatsApp</a>
+      <a id="phonepe-btn" href="#" class="btn pride">Pay with PhonePe</a>
+    </div>
+  </section>
+
+  <section id="about" class="about">
+    <h2>About Pride Invasion</h2>
+    <p>Pride Invasion brings you cutting-edge supplements crafted for warriors who demand dominance — inside and outside the gym.</p>
+  </section>
+
+  <section id="contact" class="contact">
+    <h2>Contact Us</h2>
+    <form action="https://formspree.io/f/mleqpvly" method="POST">
+      <input type="text" name="name" placeholder="Your Name" required />
+      <input type="email" name="email" placeholder="Your Email" required />
+      <textarea name="message" placeholder="Your Message" required></textarea>
+      <button type="submit" class="btn pride">Send Message</button>
+    </form>
+  </section>
+
+  <footer>
+    <p>&copy; 2025 Pride Invasion. All Rights Reserved.</p>
+  </footer>
+
+  <script src="script.js"></script>
 </body>
 </html>
