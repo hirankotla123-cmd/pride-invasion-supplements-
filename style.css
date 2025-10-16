@@ -28,20 +28,20 @@ header {
 /* Desktop */
 .logo img {
   height: 120px;      /* desktop size */
-  margin-right: 10px;
+  margin-right: 20px;
 }
 
 /* Tablets */
 @media (max-width: 1055px) {
   .logo img {
-    height: 65px;
+    height: 75px;
   }
 }
 
 /* Mobile */
 @media (max-width: 900px) {
   .logo img {
-    height: 50px;
+    height: 90px;
   }
 }
 
