@@ -154,7 +154,7 @@ nav {
   padding: 20px;
   transition: 0.3s;
   overflow-y: auto;
-  z-index: 1000;
+  z-index: 999;
 }
 
 .cart-panel h2 {
