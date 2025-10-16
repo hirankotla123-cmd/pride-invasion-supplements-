@@ -12,12 +12,18 @@
       <img src="images/logo.png" alt="Pride Invasion Logo" />
       <span>PRIDE INVASION</span>
     </div>
+
     <nav>
-      <ul>
+      <div class="menu-toggle" id="mobile-menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+      <ul class="nav-list">
         <li><a href="#products">Products</a></li>
         <li><a href="#about">About</a></li>
-        <li><a href="#contact">Contact</a></li>
-        <li><a href="#cart" id="cart-btn">🛒 Cart (<span id="cart-count">0</span>)</a></li>
+        <li><a href="#email">Contact</a></li>
+        <li><a href="#" id="cart-btn">🛒 Cart (<span id="cart-count">0</span>)</a></li>
       </ul>
     </nav>
   </header>
@@ -31,6 +37,7 @@
   <section id="products" class="products">
     <h2>Our Products</h2>
     <div class="product-grid">
+
       <div class="product-card">
         <img src="images/s4.jpg" alt="S4 Andarine">
         <h3>S4 Andarine</h3>
@@ -86,38 +93,27 @@
         <span class="price">₹2000</span>
         <button class="btn pride add-cart" data-name="Soy Protein" data-price="2000">Add to Cart</button>
       </div>
+
     </div>
   </section>
 
-  <section id="cart" class="cart-section">
+  <div class="cart-panel" id="cart-panel">
     <h2>Your Cart</h2>
     <ul id="cart-list"></ul>
     <p id="total">Total: ₹0</p>
-
     <div class="checkout-options">
-      <a href="https://wa.me/917671078991" target="_blank" class="btn pride">Checkout via WhatsApp</a>
+      <a href="mailto:hitmanhitmanty@gmail.com" class="btn pride">Email Me</a>
       <a id="paytm-btn" href="#" class="btn pride">Pay with Paytm</a>
     </div>
-
     <div class="paytm-qr">
       <p>Or scan QR to pay via Paytm:</p>
       <img src="images/paytm-qr.png" alt="Paytm QR Code" />
     </div>
-  </section>
+  </div>
 
   <section id="about" class="about">
     <h2>About Pride Invasion</h2>
     <p>Pride Invasion brings you cutting-edge supplements crafted for warriors who demand dominance — inside and outside the gym.</p>
-  </section>
-
-  <section id="contact" class="contact">
-    <h2>Contact Us</h2>
-    <form action="https://formspree.io/f/mleqpvly" method="POST">
-      <input type="text" name="name" placeholder="Your Name" required />
-      <input type="email" name="email" placeholder="Your Email" required />
-      <textarea name="message" placeholder="Your Message" required></textarea>
-      <button type="submit" class="btn pride">Send Message</button>
-    </form>
   </section>
 
   <footer>
