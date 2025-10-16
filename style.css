@@ -1,56 +1,125 @@
-body {
-  background: linear-gradient(180deg, #2a002a, #000);
-  color: #fff;
-  font-family: 'Poppins', sans-serif;
-  margin: 0;
-  padding: 0;
-  scroll-behavior: smooth;
-  box-sizing: border-box;
-}
+document.addEventListener('DOMContentLoaded', () => {
 
-/* Header */
-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  background: rgba(20,0,20,0.95);
-  padding: 15px 30px;
-  box-shadow: 0 0 20px #ff007f;
-  position: sticky;
-  top: 0;
-  z-index: 1000;
-}
+  // CART
+  let cart = [];
+  const cartCount = document.getElementById('cart-count');
+  const cartList = document.getElementById('cart-list');
+  const totalDisplay = document.getElementById('total');
+  const cartPanel = document.getElementById('cart-panel');
+  const cartBtn = document.getElementById('cart-btn');
+  const paytmBtn = document.getElementById('paytm-btn');
 
-.logo {
-  display: flex;
-  align-items: center;
-  font-size: 1.8rem;
-  font-weight: 700;
-  color: #ff80ff;
-}
+  // Add to Cart buttons
+  document.querySelectorAll('.add-cart').forEach(button => {
+    button.addEventListener('click', () => {
+      const name = button.getAttribute('data-name');
+      const price = parseInt(button.getAttribute('data-price'));
 
-.logo img { height: 40px; margin-right: 10px; }
+      // Check if item exists
+      const existing = cart.find(item => item.name === name);
+      if (existing) {
+        existing.quantity += 1;
+      } else {
+        cart.push({ name, price, quantity: 1 });
+      }
 
-nav ul { display: flex; list-style: none; gap: 25px; }
-nav a { text-decoration: none; color: #fff; font-weight: 500; transition: 0.3s; }
-nav a:hover { color: #ff007f; }
+      updateCart();
+      openCart();
+    });
+  });
 
-/* Hero */
-.hero {
-  text-align: center;
-  padding: 120px 20px;
-  background: linear-gradient(135deg, #ff007f, #ffae00, #8000ff);
-  color: white;
-}
-.hero h1 { font-size: 3rem; margin-bottom: 10px; }
-.hero p { font-size: 1.2rem; }
-.btn { padding: 12px 25px; border: none; border-radius: 30px; cursor: pointer; font-weight: 600; transition: transform 0.3s, box-shadow 0.3s; }
-.pride { background: linear-gradient(90deg,#ff007f,#ffae00,#8000ff); color:#fff; }
-.pride:hover { transform: scale(1.05); box-shadow: 0 0 20px #ff007f,0 0 40px #ffae00; }
+  // Update cart list
+  function updateCart() {
+    cartList.innerHTML = '';
+    let total = 0;
 
-/* Products */
-.products { padding: 60px 20px; text-align: center; }
-.product-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px,1fr)); gap:30px; margin-top:30px; }
-.product-card { background:#1a001a; border-radius:15px; padding:20px; box-shadow:0 0 15px #8000ff44; transition:0.3s; position:relative; }
-.product-card:hover {
+    cart.forEach((item, index) => {
+      total += item.price * item.quantity;
 
+      const li = document.createElement('li');
+      li.classList.add('cart-item');
+
+      // Name + total
+      const span = document.createElement('span');
+      span.textContent = `${item.name} - ₹${item.price * item.quantity}`;
+      li.appendChild(span);
+
+      // Quantity controls
+      const qtyDiv = document.createElement('div');
+
+      const minusBtn = document.createElement('button');
+      minusBtn.textContent = '-';
+      minusBtn.addEventListener('click', () => {
+        if (item.quantity > 1) {
+          item.quantity -= 1;
+        } else {
+          cart.splice(index, 1);
+        }
+        updateCart();
+      });
+
+      const qtySpan = document.createElement('span');
+      qtySpan.textContent = item.quantity;
+      qtySpan.style.margin = '0 8px';
+
+      const plusBtn = document.createElement('button');
+      plusBtn.textContent = '+';
+      plusBtn.addEventListener('click', () => {
+        item.quantity += 1;
+        updateCart();
+      });
+
+      qtyDiv.appendChild(minusBtn);
+      qtyDiv.appendChild(qtySpan);
+      qtyDiv.appendChild(plusBtn);
+      li.appendChild(qtyDiv);
+
+      // Remove button
+      const removeBtn = document.createElement('button');
+      removeBtn.textContent = '❌';
+      removeBtn.style.marginLeft = '10px';
+      removeBtn.addEventListener('click', () => {
+        cart.splice(index, 1);
+        updateCart();
+      });
+
+      li.appendChild(removeBtn);
+
+      cartList.appendChild(li);
+    });
+
+    cartCount.textContent = cart.reduce((sum, item) => sum + item.quantity, 0);
+    totalDisplay.textContent = `Total: ₹${total}`;
+  }
+
+  // CART PANEL OPEN/CLOSE
+  function openCart() { cartPanel.style.right = '0'; }
+  function closeCart() { cartPanel.style.right = '-400px'; }
+
+  cartBtn.addEventListener('click', () => {
+    if (cartPanel.style.right === '0px') {
+      closeCart();
+    } else {
+      openCart();
+    }
+  });
+
+  // PAYTM PAYMENT
+  paytmBtn.addEventListener('click', () => {
+    if (cart.length === 0) {
+      alert('Your cart is empty!');
+      return;
+    }
+    const total = cart.reduce((sum, item) => sum + item.price * item.quantity, 0);
+    const paytmUPI = `upi://pay?pa=7671078991@pthdfc&pn=PrideInvasion&am=${total}&cu=INR&tn=Pride%20Invasion%20Order`;
+    window.location.href = paytmUPI;
+  });
+
+  // MOBILE MENU TOGGLE
+  const mobileMenu = document.getElementById('mobile-menu');
+  const navList = document.querySelector('.nav-list');
+  mobileMenu.addEventListener('click', () => {
+    navList.classList.toggle('active');
+  });
+
+});
