@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Checkout | Kotla Hiran</title>
+  <style>
+    body {
+      font-family: Poppins, sans-serif;
+      background: #f5f5f5;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+
+    .checkout-box {
+      background: #fff;
+      padding: 30px;
+      border-radius: 16px;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+      width: 90%;
+      max-width: 400px;
+      text-align: center;
+    }
+
+    h2 {
+      margin-bottom: 10px;
+      font-size: 1.5rem;
+      color: #111;
+    }
+
+    .price {
+      color: #555;
+      margin-bottom: 25px;
+      font-size: 1.1rem;
+    }
+
+    .btn {
+      background: #111;
+      color: #fff;
+      padding: 12px 24px;
+      border-radius: 8px;
+      text-decoration: none;
+      font-size: 1rem;
+      transition: background 0.3s ease;
+      display: inline-block;
+    }
+
+    .btn:hover {
+      background: #333;
+    }
+  </style>
+</head>
+<body>
+  <div class="checkout-box">
+    <h2 id="product-name">Product Name</h2>
+    <p class="price" id="product-price">₹0</p>
+
+    <a id="razorpay-btn" href="#" class="btn" onclick="goToThankYou()">💳 Pay Securely with Razorpay</a>
+  </div>
+
+  <script>
+    const urlParams = new URLSearchParams(window.location.search);
+    const product = urlParams.get('product');
+    const price = urlParams.get('price');
+
+    document.getElementById('product-name').innerText = product;
+    document.getElementById('product-price').innerText = `₹${price}`;
+
+    // Assign fixed Razorpay links per product
+    let link = "";
+    if (product === "ProductA") {
+      link = "https://razorpay.me/@kotlahiran?amount=370000"; // ₹3700 fixed
+    } else if (product === "ProductB") {
+      link = "https://razorpay.me/@kotlahiran?amount=250000"; // ₹2500 fixed
+    }
+
+    function goToThankYou() {
+      window.open(link, "_blank");
+      setTimeout(() => {
+        window.location.href = "thankyou.html";
+      }, 2000);
+    }
+  </script>
+</body>
+</html>
