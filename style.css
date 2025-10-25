@@ -1,7 +1,7 @@
 /* General Styles */
 body {
-  background: linear-gradient(180deg, #2a002a, #000);
-  color: #fff;
+  background: linear-gradient(180deg, #ffffff, #f7f7fb);
+  color: #222;
   font-family: 'Poppins', sans-serif;
   margin: 0;
   padding: 0;
@@ -12,9 +12,12 @@ header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background: rgba(20,0,20,0.9);
+  background: white;
   padding: 15px 30px;
-  box-shadow: 0 0 20px #ff007f;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.05);
+  position: sticky;
+  top: 0;
+  z-index: 10;
 }
 
 .logo {
@@ -22,36 +25,18 @@ header {
   align-items: center;
   font-size: 1.8rem;
   font-weight: 700;
-  color: #ff80ff;
+  background: linear-gradient(90deg, #a855f7, #ec4899);
+  -webkit-background-clip: text;
+  color: transparent;
 }
 
-
-/* Desktop */
+/* Logo Image */
 .logo img {
-  height: 140px;  /* really big for desktop */
-  margin-right: 15px;
+  height: 100px;
+  margin-right: 10px;
 }
-
-/* Tablets */
-@media (max-width: 1024px) {
-  .logo img {
-    height: 110px;  /* slightly smaller on tablets */
-  }
-}
-
-/* Mobile */
-@media (max-width: 768px) {
-  .logo img {
-    height: 90px;   /* still big, fits mobile screens */
-  }
-}
-
 
 /* Navigation */
-nav {
-  position: relative;
-}
-
 .nav-list {
   display: flex;
   list-style: none;
@@ -60,13 +45,13 @@ nav {
 
 .nav-list li a {
   text-decoration: none;
-  color: #fff;
+  color: #333;
   font-weight: 500;
   transition: 0.3s;
 }
 
 .nav-list li a:hover {
-  color: #ff007f;
+  color: #a855f7;
 }
 
 /* Hamburger Menu */
@@ -80,16 +65,17 @@ nav {
 .menu-toggle span {
   height: 3px;
   width: 25px;
-  background: #fff;
+  background: #333;
   border-radius: 2px;
 }
 
 /* Hero Section */
 .hero {
   text-align: center;
-  padding: 120px 20px;
-  background: linear-gradient(135deg, #ff007f, #ffae00, #8000ff);
+  padding: 100px 20px;
+  background: linear-gradient(135deg, #a855f7, #ec4899);
   color: white;
+  border-bottom: 1px solid #eee;
 }
 
 .hero h1 {
@@ -104,21 +90,21 @@ nav {
 .btn {
   padding: 12px 25px;
   border: none;
-  border-radius: 30px;
+  border-radius: 25px;
   cursor: pointer;
   text-decoration: none;
   font-weight: 600;
+  transition: 0.3s;
 }
 
 .pride {
-  background: linear-gradient(90deg, #ff007f, #ffae00, #8000ff);
+  background: linear-gradient(90deg, #a855f7, #ec4899);
   color: #fff;
-  transition: 0.4s;
 }
 
 .pride:hover {
-  transform: scale(1.05);
-  box-shadow: 0 0 20px #ff007f;
+  opacity: 0.9;
+  transform: scale(1.03);
 }
 
 /* Products */
@@ -135,16 +121,16 @@ nav {
 }
 
 .product-card {
-  background: #1a001a;
+  background: #fff;
   border-radius: 15px;
   padding: 20px;
-  box-shadow: 0 0 15px #8000ff44;
+  box-shadow: 0 2px 15px rgba(0, 0, 0, 0.05);
   transition: 0.3s;
 }
 
 .product-card:hover {
   transform: translateY(-5px);
-  box-shadow: 0 0 25px #ff007f66;
+  box-shadow: 0 5px 25px rgba(168, 85, 247, 0.15);
 }
 
 .product-card img {
@@ -155,7 +141,7 @@ nav {
 .price {
   display: block;
   margin: 10px 0;
-  color: #ffae00;
+  color: #a855f7;
   font-weight: 700;
 }
 
@@ -166,43 +152,25 @@ nav {
   right: -400px;
   width: 350px;
   height: 100%;
-  background: #0d000d;
+  background: #fff;
   padding: 20px;
-  box-shadow: -5px 0 20px #ff007f66;
+  box-shadow: -5px 0 20px rgba(0, 0, 0, 0.1);
   transition: right 0.3s ease;
   z-index: 999;
   display: flex;
   flex-direction: column;
-  overflow-y: auto; /* allows scrolling */
-}
-
-.cart-content {
-  flex: 1 1 auto; /* makes content grow to fill panel */
-  display: flex;
-  flex-direction: column;
-}
-
-#cart-list {
-  list-style: none;
-  padding: 0;
-  margin: 0 0 10px 0;
-}
-
-.checkout-options {
-  margin-top: auto; /* pushes checkout to bottom of cart-content */
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
+  overflow-y: auto;
+  color: #222;
 }
 
 .checkout-options input,
 .checkout-options textarea {
   padding: 10px;
   border-radius: 10px;
-  border: none;
+  border: 1px solid #ddd;
   outline: none;
-  background: #2a002a;
-  color: white;
+  background: #fafafa;
+  color: #222;
 }
 
 /* Paytm QR */
@@ -218,42 +186,33 @@ nav {
   margin-top: 10px;
 }
 
-/* About & Contact */
-.about, .contact {
-  padding: 60px 20px;
-  text-align: center;
-}
-
-.contact a {
-  color: #ff007f;
-  text-decoration: none;
-}
-
 /* Footer */
 footer {
-  background: #110011;
+  background: #f3f3f6;
   text-align: center;
   padding: 20px;
   font-size: 0.9rem;
-  color: #aaa;
+  color: #555;
+  border-top: 1px solid #eee;
 }
 
 /* Mobile Responsive */
 @media (max-width: 768px){
   .logo img {
-    height:50px;
+    height: 70px;
   }
-}
+
   .nav-list {
     position: absolute;
     top: 60px;
     right: 0;
-    background: rgba(20,0,20,0.95);
+    background: white;
     flex-direction: column;
     width: 200px;
     padding: 15px;
     transform: translateX(100%);
     transition: 0.3s;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
   }
 
   .nav-list.active {
