@@ -108,7 +108,8 @@
     <ul id="cart-list"></ul>
     <p id="total">Total: ₹0</p>
 
-  <div class="checkout-options">
+
+<div class="checkout-options">
   <h3>Enter Your Details</h3>
   <input type="text" id="buyer-name" placeholder="Your Name" required />
   <input type="email" id="buyer-email" placeholder="Your Email" required />
@@ -120,7 +121,7 @@
     Send Order via Email
   </button>
 
-  <!-- Razorpay Payment Button (placed below) -->
+  <!-- Razorpay Payment Button (below email button) -->
   <button id="razorpay-btn" class="btn pride" style="background:#111; margin-top:10px;">
     💳 Pay Securely
   </button>
@@ -133,12 +134,12 @@
 <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
 <script>
   // Example cart total (replace with actual cart calculation)
-  var cartTotal = 1600; // dynamic
-  var amountInPaise = cartTotal * 100;
+  var cartTotal = 1600; // dynamic amount
+  var amountInPaise = cartTotal * 100; // Razorpay needs amount in paise
 
   document.getElementById('razorpay-btn').onclick = function(e){
     var options = {
-        "key": "razorpay.me/@kotlahiran", // Replace with your Razorpay Key ID
+        "key": "RUYmVWkZSswChy", // Your Razorpay Merchant Key ID
         "amount": amountInPaise,
         "currency": "INR",
         "name": "Your Store Name",
@@ -161,6 +162,7 @@
     e.preventDefault();
   }
 </script>
+
 
     
 
