@@ -108,22 +108,61 @@
     <ul id="cart-list"></ul>
     <p id="total">Total: ₹0</p>
 
-    <div class="checkout-options">
-      <h3>Enter Your Details</h3>
-      <input type="text" id="buyer-name" placeholder="Your Name" required />
-      <input type="email" id="buyer-email" placeholder="Your Email" required />
-      <input type="text" id="buyer-phone" placeholder="Phone Number" required />
-      <textarea id="buyer-address" placeholder="Delivery Address" rows="3" required></textarea>
-      <button id="email-order" class="btn pride">Send Order via Email</button>
-      <a id="paytm-btn" href="#" class="btn pride">Pay with Paytm</a>
-    </div>
-  </div>
+  <div class="checkout-options">
+  <h3>Enter Your Details</h3>
+  <input type="text" id="buyer-name" placeholder="Your Name" required />
+  <input type="email" id="buyer-email" placeholder="Your Email" required />
+  <input type="text" id="buyer-phone" placeholder="Phone Number" required />
+  <textarea id="buyer-address" placeholder="Delivery Address" rows="3" required></textarea>
 
-  <div class="paytm-qr">
-    <p>Or scan QR to pay via Paytm:</p>
-    <img src="images/paytm-qr.png" alt="Paytm QR Code">
-  </div>
+  <!-- Send Order via Email Button -->
+  <button id="email-order" class="btn pride" style="margin-top:10px;">
+    Send Order via Email
+  </button>
+
+  <!-- Razorpay Payment Button (placed below) -->
+  <button id="razorpay-btn" class="btn pride" style="background:#111; margin-top:10px;">
+    💳 Pay Securely
+  </button>
+
+  <p style="font-size: 0.9rem; color: gray; margin-top: 5px;">
+    After payment, send screenshot to <b>hitmanhitmanty@gmail.com</b> or WhatsApp.
+  </p>
 </div>
+
+<script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+<script>
+  // Example cart total (replace with actual cart calculation)
+  var cartTotal = 1600; // dynamic
+  var amountInPaise = cartTotal * 100;
+
+  document.getElementById('razorpay-btn').onclick = function(e){
+    var options = {
+        "key": "YOUR_RAZORPAY_KEY", // Replace with your Razorpay Key ID
+        "amount": amountInPaise,
+        "currency": "INR",
+        "name": "Your Store Name",
+        "description": "Order Payment",
+        "handler": function (response){
+            alert("Payment successful! Payment ID: " + response.razorpay_payment_id);
+            // Trigger order email here if needed
+        },
+        "prefill": {
+            "name": document.getElementById('buyer-name').value,
+            "email": document.getElementById('buyer-email').value,
+            "contact": document.getElementById('buyer-phone').value
+        },
+        "theme": {
+            "color": "#111111"
+        }
+    };
+    var rzp = new Razorpay(options);
+    rzp.open();
+    e.preventDefault();
+  }
+</script>
+
+    
 
 
   <section id="about" class="about">
