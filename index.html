@@ -1,104 +1,145 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Kotla Hiran | Shop</title>
-  <style>
-    body {
-      font-family: Poppins, sans-serif;
-      background: #f4f4f4;
-      margin: 0;
-      padding: 0;
-    }
-
-    header {
-      background: #111;
-      color: #fff;
-      padding: 15px 0;
-      text-align: center;
-      font-size: 1.4rem;
-      letter-spacing: 1px;
-    }
-
-    .container {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 20px;
-      padding: 30px;
-      max-width: 1000px;
-      margin: auto;
-    }
-
-    .card {
-      background: #fff;
-      border-radius: 16px;
-      overflow: hidden;
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-      text-align: center;
-      transition: transform 0.2s ease, box-shadow 0.2s ease;
-    }
-
-    .card:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15);
-    }
-
-    .card img {
-      width: 100%;
-      height: 200px;
-      object-fit: cover;
-    }
-
-    .card-content {
-      padding: 15px;
-    }
-
-    .price {
-      font-weight: bold;
-      color: #111;
-      margin: 10px 0;
-      font-size: 1.1rem;
-    }
-
-    .btn {
-      background: #111;
-      color: #fff;
-      padding: 10px 20px;
-      border-radius: 8px;
-      text-decoration: none;
-      display: inline-block;
-      transition: background 0.3s ease;
-    }
-
-    .btn:hover {
-      background: #333;
-    }
-  </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pride Invasion - Premium Supplements</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <header>KOTLA HIRAN — Official Store</header>
 
-  <div class="container">
-    <!-- Product 1 -->
-    <div class="card">
-      <img src="https://via.placeholder.com/400x200.png?text=Product+1" alt="Product 1">
-      <div class="card-content">
-        <h3>Product A</h3>
-        <p class="price">₹3700</p>
-        <a href="checkout.html?product=ProductA&price=3700" class="btn">Buy Now</a>
-      </div>
+  <header>
+    <div class="logo">
+      <img src="images/logo.jpg" alt="Pride Invasion Logo">
+      <span>PRIDE INVASION</span>
     </div>
 
-    <!-- Product 2 -->
-    <div class="card">
-      <img src="https://via.placeholder.com/400x200.png?text=Product+2" alt="Product 2">
-      <div class="card-content">
-        <h3>Product B</h3>
-        <p class="price">₹2500</p>
-        <a href="checkout.html?product=ProductB&price=2500" class="btn">Buy Now</a>
+    <nav>
+      <div class="menu-toggle" id="mobile-menu">
+        <span></span>
+        <span></span>
+        <span></span>
       </div>
+      <ul class="nav-list">
+        <li><a href="#products">Products</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#contact">Contact</a></li>
+        <li><a href="#" id="cart-btn">🛒 Cart (<span id="cart-count">0</span>)</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <section class="hero">
+    <h1>Unleash Your Power</h1>
+    <p>Elite SARMs, Protein & Creatine for true domination.</p>
+    <a href="#products" class="btn pride">Shop Now</a>
+  </section>
+
+  <section id="products" class="products">
+    <h2>Our Products</h2>
+    <div class="product-grid">
+
+      <!-- SARMs Products with warning -->
+      <div class="product-card">
+        <img src="images/s4.jpg" alt="S4 Andarine">
+        <h3>S4 Andarine</h3>
+        <p>Enhance fat loss and muscle definition.</p>
+        <span class="price">₹3700</span>
+        <button class="btn pride add-cart" data-name="S4 Andarine" data-price="3700" data-warning="SARMs are only recommended for 21+ age. Possible side effects: liver stress, hormone imbalance, hair loss, vision issues.">Add to Cart</button>
+      </div>
+
+      <div class="product-card">
+        <img src="images/rad140.jpg" alt="RAD-140">
+        <h3>RAD-140</h3>
+        <p>Extreme muscle growth and recovery boost.</p>
+        <span class="price">₹4500</span>
+        <button class="btn pride add-cart" data-name="RAD-140" data-price="4500" data-warning="SARMs are only recommended for 21+ age. Possible side effects: liver stress, hormone imbalance, hair loss, vision issues.">Add to Cart</button>
+      </div>
+
+      <div class="product-card">
+        <img src="images/lgd4033.jpg" alt="LGD-4033">
+        <h3>LGD-4033</h3>
+        <p>Rapid lean muscle gains and strength.</p>
+        <span class="price">₹4200</span>
+        <button class="btn pride add-cart" data-name="LGD-4033" data-price="4200" data-warning="SARMs are only recommended for 21+ age. Possible side effects: liver stress, hormone imbalance, hair loss, vision issues.">Add to Cart</button>
+      </div>
+
+      <div class="product-card">
+        <img src="images/mk677.jpg" alt="MK-677">
+        <h3>MK-677</h3>
+        <p>Boosts HGH, recovery, and sleep quality.</p>
+        <span class="price">₹3900</span>
+        <button class="btn pride add-cart" data-name="MK-677" data-price="3900">Add to Cart</button>
+      </div>
+
+      <div class="product-card">
+        <img src="images/yk11.jpg" alt="YK-11">
+        <h3>YK-11</h3>
+        <p>Maximum anabolic effect and muscle fullness.</p>
+        <span class="price">₹4800</span>
+        <button class="btn pride add-cart" data-name="YK-11" data-price="4800" data-warning="SARMs are only recommended for 21+ age. Possible side effects: liver stress, hormone imbalance, hair loss, vision issues.">Add to Cart</button>
+      </div>
+
+      <!-- Supplements without warning -->
+      <div class="product-card">
+        <img src="images/creatine.jpg" alt="Creatine Monohydrate">
+        <h3>Creatine Monohydrate</h3>
+        <p>Explosive power and endurance.</p>
+        <span class="price">₹400</span>
+        <button class="btn pride add-cart" data-name="Creatine Monohydrate" data-price="400">Add to Cart</button>
+      </div>
+
+      <div class="product-card">
+        <img src="images/protein.jpg" alt="Soy Protein">
+        <h3>Soy Protein</h3>
+        <p>Premium plant-based protein for muscle recovery.</p>
+        <span class="price">₹2000</span>
+        <button class="btn pride add-cart" data-name="Soy Protein" data-price="2000">Add to Cart</button>
+      </div>
+
+    </div>
+  </section>
+
+<div class="cart-panel" id="cart-panel">
+  <button id="close-cart" class="btn pride" style="margin-bottom:10px;">Close ❌</button>
+  <h2>Your Cart</h2>
+
+  <div class="cart-content">
+    <ul id="cart-list"></ul>
+    <p id="total">Total: ₹0</p>
+
+    <div class="checkout-options">
+      <h3>Enter Your Details</h3>
+      <input type="text" id="buyer-name" placeholder="Your Name" required />
+      <input type="email" id="buyer-email" placeholder="Your Email" required />
+      <input type="text" id="buyer-phone" placeholder="Phone Number" required />
+      <textarea id="buyer-address" placeholder="Delivery Address" rows="3" required></textarea>
+      <button id="email-order" class="btn pride">Send Order via Email</button>
+      <a id="paytm-btn" href="#" class="btn pride">Pay with Paytm</a>
     </div>
   </div>
+
+  <div class="paytm-qr">
+    <p>Or scan QR to pay via Paytm:</p>
+    <img src="images/paytm-qr.png" alt="Paytm QR Code">
+  </div>
+</div>
+
+
+  <section id="about" class="about">
+    <h2>About Pride Invasion</h2>
+    <p>Pride Invasion brings you cutting-edge supplements crafted for warriors who demand dominance — inside and outside the gym.</p>
+  </section>
+
+  <section id="contact" class="contact">
+    <h2>Contact</h2>
+    <p>Email: <a href="mailto:hitmanhitmanty@gmail.com">hitmanhitmanty@gmail.com</a></p>
+  </section>
+
+  <footer>
+    <p>&copy; 2025 Pride Invasion. All Rights Reserved.</p>
+  </footer>
+
+  <script src="script.js" defer></script>
 </body>
 </html>
