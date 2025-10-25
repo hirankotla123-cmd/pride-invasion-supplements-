@@ -108,22 +108,25 @@
     <ul id="cart-list"></ul>
     <p id="total">Total: ₹0</p>
 
-    <div class="checkout-options">
-      <h3>Enter Your Details</h3>
-      <input type="text" id="buyer-name" placeholder="Your Name" required />
-      <input type="email" id="buyer-email" placeholder="Your Email" required />
-      <input type="text" id="buyer-phone" placeholder="Phone Number" required />
-      <textarea id="buyer-address" placeholder="Delivery Address" rows="3" required></textarea>
-      <button id="email-order" class="btn pride">Send Order via Email</button>
-      <a id="paytm-btn" href="#" class="btn pride">Pay with Paytm</a>
-    </div>
-  </div>
+<div class="checkout-options">
+  <h3>Enter Your Details</h3>
+  <input type="text" id="buyer-name" placeholder="Your Name" required />
+  <input type="email" id="buyer-email" placeholder="Your Email" required />
+  <input type="text" id="buyer-phone" placeholder="Phone Number" required />
+  <textarea id="buyer-address" placeholder="Delivery Address" rows="3" required></textarea>
 
-  <div class="paytm-qr">
-    <p>Or scan QR to pay via Paytm:</p>
-    <img src="images/paytm-qr.png" alt="Paytm QR Code">
-  </div>
+  <button id="email-order" class="btn pride">Send Order via Email</button>
+
+  <!-- Razorpay Payment Button -->
+  <a id="razorpay-btn" href="https://razorpay.me/@kotlahiran" target="_blank" class="btn pride" style="background:#111; margin-top:10px;">
+    💳 Pay Securely with Razorpay
+  </a>
+
+  <p style="font-size: 0.9rem; color: gray; margin-top: 5px;">
+    After payment, send screenshot to <b>hitmanhitmanty@gmail.com</b> or WhatsApp.
+  </p>
 </div>
+
 
 
   <section id="about" class="about">
